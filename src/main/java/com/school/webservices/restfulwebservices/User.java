@@ -1,4 +1,4 @@
-package com.school.webservices.restfulwebservices.User;
+package com.school.webservices.restfulwebservices;
 
 import java.time.LocalDate;
 
@@ -33,7 +33,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "Users{" +
+        return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", birthDate=" + birthDate +
@@ -46,3 +46,4 @@ public class User {
         this.birthDate = birthDate;
     }
 }
+

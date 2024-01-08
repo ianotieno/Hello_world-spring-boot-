@@ -1,11 +1,14 @@
-package com.school.webservices.restfulwebservices.User;
+package com.school.webservices.restfulwebservices;
+
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class UserDaoService {
-    private  static List<User> users = new ArrayList<>();
+    private  static final List<User> users = new ArrayList<>();
     static {
         users.add(new User(1,"Mercy", LocalDate.now().minusYears(30)));
         users.add(new User(2,"Hellen", LocalDate.now().minusYears(50)));
@@ -13,6 +16,6 @@ public class UserDaoService {
         users.add(new User(4,"moreen", LocalDate.now().minusYears(34)));
     }
     public List<User> findAll(){
-        return  users ;
+        return new ArrayList<>(users)   ;
     }
 }
