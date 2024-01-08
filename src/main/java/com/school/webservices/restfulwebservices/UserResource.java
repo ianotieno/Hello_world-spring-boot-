@@ -1,6 +1,6 @@
 package com.school.webservices.restfulwebservices;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,8 +24,9 @@ public class UserResource {
 
     }
     @PostMapping("/users")
-    public void createUser(@RequestBody User user){
+    public ResponseEntity<User> createUser(@RequestBody User user){
     userDaoService.save(user);
+    return ResponseEntity.created(null).build();
     }
 
 }

@@ -26,6 +26,7 @@ public class UserDaoService {
         user.setId(++userCount);
         users.add(user);
         return user;
+
     }
     public User findOne(int id){
         Predicate<? super User> Predicate = user -> user.getId().equals(id);
