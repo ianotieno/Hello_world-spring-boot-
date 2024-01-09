@@ -11,9 +11,9 @@ public class User {
     private  Integer id;
 
 
-    @Size(min=2, max=30)
+    @Size(min=2, max=30, message ="name should be more than two characters" )
     private String name;
-    @Past
+    @Past(message = "date of birth should be in the past")
     private LocalDate birthDate;
 
     public Integer getId() {
