@@ -43,8 +43,5 @@ public class UserResource {
             .buildAndExpand(user1.getId()).toUri();
     return ResponseEntity.created(location).build();
     }
- @GetMapping(path = "/hello-world-inter")
-    public  String helloWorldInter(){
-        return  "Hello world ";
- }
+
 }
