@@ -1,10 +1,19 @@
 package com.school.webservices.restfulwebservices;
 
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+import org.antlr.v4.runtime.misc.NotNull;
+
 import java.time.LocalDate;
 
 public class User {
+
     private  Integer id;
+
+
+    @Size(min=2, max=30)
     private String name;
+    @Past
     private LocalDate birthDate;
 
     public Integer getId() {
