@@ -22,4 +22,16 @@ public class VersioningPersonController {
     public PersonV2 getVersion(){
         return new PersonV2(new Name("Stella","mwangi"));
     }
+    @GetMapping(path = "/person/header", headers = "X-API-VERSION=1")
+    public Person getHeader(){
+        return new Person("Juma Jux");
+    }
+    @GetMapping(path = "/person/header", headers = "X-API-VERSION=2")
+    public PersonV2 getHeader2(){
+        return new PersonV2(new Name("Juma","alonso"));
+    }
+    @GetMapping(path = "/person/accept", produces = "application/vnd.company.app-v1+json")
+    public Person getApp(){
+        return  new Person("Fridah mwangi");
+    }
 }
