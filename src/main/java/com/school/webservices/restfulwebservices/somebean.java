@@ -1,10 +1,12 @@
 package com.school.webservices.restfulwebservices;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 //@JsonIgnoreProperties({"field2", "field3"})
+@JsonFilter("SomeBeanFilter")
 public class somebean {
     private  String  field1;
 //@JsonIgnore
