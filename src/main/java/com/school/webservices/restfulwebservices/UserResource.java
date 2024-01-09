@@ -23,12 +23,22 @@ public class UserResource {
         return  userDaoService.findAll();
 
     }
+    @PostMapping("/users")
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user){
+        User user1=  userDaoService.save(user);
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(user1.getId()).toUri();
+        return ResponseEntity.created(location).build();
+    }
     @GetMapping("/users/{id}")
     public EntityModel<User > retrieveUser(@PathVariable int id){
         User user = userDaoService.findOne(id);
         if(user==null)
             throw  new UserNotFoundException("id:"+id);
         WebMvcLinkBuilder linkBuilder = linkTo(methodOn(this.getClass()).retrieveAllUsers());
+
 
         EntityModel <User> entityModel= EntityModel.of(user);
         entityModel.add(linkBuilder.withRel("all-users"));
@@ -39,14 +49,6 @@ public class UserResource {
         userDaoService.deleteById(id);
 
     }
-    @PostMapping("/users")
-    public ResponseEntity<User> createUser(@Valid @RequestBody User user){
-   User user1=  userDaoService.save(user);
-    URI location = ServletUriComponentsBuilder
-            .fromCurrentRequest()
-            .path("/{id}")
-            .buildAndExpand(user1.getId()).toUri();
-    return ResponseEntity.created(location).build();
-    }
+
 
 }

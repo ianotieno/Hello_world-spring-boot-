@@ -1,5 +1,6 @@
 package com.school.webservices.restfulwebservices;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 import org.antlr.v4.runtime.misc.NotNull;
@@ -12,6 +13,7 @@ public class User {
 
 
     @Size(min=2, max=30, message ="name should be more than two characters" )
+    @JsonProperty("user_name")
     private String name;
     @Past(message = "date of birth should be in the past")
     private LocalDate birthDate;
