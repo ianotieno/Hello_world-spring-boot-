@@ -3,6 +3,7 @@ package com.school.webservices.restfulwebservices;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Post {
@@ -17,6 +18,8 @@ public class Post {
         this.description = description;
     }
 
+
+    @Size(min = 2)
     private String description;
     @ManyToOne( fetch = FetchType.LAZY)
     @JsonIgnore
@@ -38,6 +41,14 @@ public class Post {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
