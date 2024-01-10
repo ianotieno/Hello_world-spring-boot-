@@ -31,7 +31,7 @@ public class UserJpaResource {
     }
     @PostMapping("/jpa/users")
     public ResponseEntity<User> createUser(@Valid @RequestBody User user){
-        User user1=  userDaoService.save(user);
+        User user1=  userRepository.save(user);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
@@ -52,7 +52,7 @@ public class UserJpaResource {
     }
     @DeleteMapping("/jpa/users/{id}")
     public void deleteUser(@PathVariable int id){
-        userDaoService.deleteById(id);
+        userRepository.deleteById(id);
 
     }
 
