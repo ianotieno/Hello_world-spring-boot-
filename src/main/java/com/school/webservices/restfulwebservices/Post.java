@@ -1,12 +1,13 @@
 package com.school.webservices.restfulwebservices;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
 @Entity
 public class Post {
+
+
     @Id
     @GeneratedValue
     private Integer id;
@@ -17,7 +18,9 @@ public class Post {
     }
 
     private String description;
-
+    @ManyToOne( fetch = FetchType.LAZY)
+    @JsonIgnore
+    private User user ;
     public Post() {
     }
 
