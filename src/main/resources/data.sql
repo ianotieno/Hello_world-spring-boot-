@@ -2,10 +2,7 @@ insert into user_details(id,birth_date,name)
 values (10001,current_date(),'ian');
 
 insert into user_details(id,birth_date,name)
-values (10001,current_date(),'john');
+values (10002,current_date(),'otione');
 
 insert into user_details(id,birth_date,name)
-values (10001,current_date(),'mary');
-
-insert into user_details(id,birth_date,name)
-values (10001,current_date(),'angela');
+values (10003,current_date(),'agutu');
